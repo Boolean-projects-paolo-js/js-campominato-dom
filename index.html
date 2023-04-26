@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="asset/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- /***************************** Header ****************************************/ -->
+    
+    <header class="testata">
+        <div class="t-container px-4">
+            <div class="d-flex flex-row align-items-center justify-content-center;">
+                <img src="img/mobile-logo.png" class="logo" alt="">
+                <h1 class="px-3" style="font-weight: 700;">Campo Minato</h1>
+            </div>
+            
+            <div class="d-flex flex-row align-items-center justify-content-center;">
+                <span>Difficoltà:</span>
+                <select id="difficoltà" class="form-select py-0"
+                    style=" border: solid 2px black; margin: 0.5rem; background-color: whitesmoke; font-weight: 600;"
+                    aria-label="Default select example" class="rounded">
+                    <option value="1">Facile</option>
+                    <option value="2">Media</option>
+                    <option value="3">Difficile</option>
+                </select>
+                <button class="button px-5 rounded" style="font-weight: 600;">Play</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- /******************** Tabella - Difficoltà selezionata ************************/ -->
+
+    <section class="sfondo">
+        <div class="container py-5">
+            <div class="griglia d-flex flex-wrap m-auto">
+
+            </div>
+
+        </div>
+    </section>
+
+     <!-- /***************************** Footer ****************************************/ -->
+
+    <footer class="footer">
+        <div class="d-flex align-items-center px-4" style="width: 100%; height: 100%;">
+            <span style="font-weight: 600; font-size: 15px;">Made with <i class="bi bi-heart-fill" style="font-size: 12px;"></i> by <a href="">Boolean</a></span>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/script.js"></script>
+</body>
+
+</html>
