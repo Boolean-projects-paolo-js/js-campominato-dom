@@ -11,17 +11,35 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
-const eleBtn = document.querySelector(".button")
+
+// Bottone che crea la Griglia
+const eleBtn = document.querySelector(".button");
+
+const loser = document.querySelector("#lose");
+const titlePoints = document.querySelector("#h2");
 
 
+
+//Funzione che crea la griglia
 
 eleBtn.addEventListener("click", function(){
+
+    //Punteggio
+    let score = 0
+
+    //Array Bombe
+    const num = [];
+
+    //Creazione della griglia - legata alla difficoltà
     const eleGrid = document.querySelector('.griglia')
     const eleDifficulty = document.getElementById("difficoltà");
     let difficoltà = eleDifficulty.options[eleDifficulty.selectedIndex].value;
     
+    document.querySelector("#score").innerHTML = "";
+    eleGrid.classList.remove("not_clickable");
+    loser.classList.add("hidden");
 
-    const num = [];
+    
     
      
     
@@ -44,20 +62,28 @@ eleBtn.addEventListener("click", function(){
         getRandom (1, 49, num);
     }
 
+/*Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.*/
+
     const listCells = document.querySelectorAll('.cell');
 
     for (let i = 0; i < listCells.length; i++) {
         const cell = listCells[i];
         cell.addEventListener('click', function() {
             if (num.includes(i + 1)) {
-                console.log ("hai cliccato la cella" + this.innerHTML);
-                this.classList.toggle ("bomb");
-                console.log ("hai perso");
+                console.log("hai cliccato la cella " + this.innerHTML);
+                this.classList.toggle("bomb");
+                eleGrid.classList.add("not_clickable");
+                loser.classList.remove("hidden");
+                titlePoints.classList.remove("hidden");
+                document.querySelector("#score").innerHTML = score;
+                // console.log("hai perso");
             }
             else{
                 console.log("hai cliccato la cella" + this.innerHTML);
-                this.classList.toggle("clicked");
-                ;
+                this.classList.toggle(".clicked");
+                score++;
+                console.log(score); 
+                
             }
         })
 }

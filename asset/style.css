@@ -79,10 +79,48 @@
 
 .clicked{
     background-color: cornflowerblue;
+    pointer-events: none;
 }
 
 .bomb{
     background-color: red;
+    pointer-events: none;
+}
+
+/*******************Eventi - Click*******************/
+
+
+.text{
+    display: none;
+}
+
+.lose{
+    display: block;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+
+
+
+.text2{
+    display: none;
+}
+
+.punteggio2{
+    display: block;
+    text-align: center;
+}
+
+
+
+
+.not_clickable {
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
 }
 
 /************************Footer*************************/
