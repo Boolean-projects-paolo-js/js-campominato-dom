@@ -39,10 +39,10 @@
 /*****Tipologia di tabella - Difficoltà selezionata*****/
 
 .facile{
-    height: 420px;
+    height: 600px;
     aspect-ratio: 1 / 1;
     /* background-color: antiquewhite; */
-    padding-top: 15vh;
+    padding-top: 5vh;
 }
 
 .media{
@@ -52,9 +52,9 @@
 }
 
 .difficile{
-    height: 600px;
+    height: 420px;
     aspect-ratio: 1 / 1;
-    padding-top: 5vh;
+    padding-top: 15vh;
 }
 
 
@@ -81,6 +81,9 @@
     background-color: cornflowerblue;
 }
 
+.bomb{
+    background-color: red;
+}
 
 /************************Footer*************************/
 

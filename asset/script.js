@@ -10,3 +10,97 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
+
+const eleBtn = document.querySelector(".button")
+
+
+
+eleBtn.addEventListener("click", function(){
+    const eleGrid = document.querySelector('.griglia')
+    const eleDifficulty = document.getElementById("difficoltà");
+    let difficoltà = eleDifficulty.options[eleDifficulty.selectedIndex].value;
+    
+
+    const num = [];
+    
+     
+    
+    if (difficoltà == "facile") {
+        eleGrid.classList.remove("facile", "media", "difficile");
+        eleGrid.classList.add("facile");
+        createGrid(100, eleGrid);
+        getRandom (1, 100, num);
+
+    } else if (difficoltà == "media") {
+        eleGrid.classList.remove("facile", "media", "difficile");
+        eleGrid.classList.add("media");
+        createGrid(81, eleGrid);
+        getRandom (1, 81, num);
+        
+    } else if (difficoltà == "difficile") {
+        eleGrid.classList.remove("facile", "media", "difficile");
+        eleGrid.classList.add("difficile");
+        createGrid(49, eleGrid);
+        getRandom (1, 49, num);
+    }
+
+    const listCells = document.querySelectorAll('.cell');
+
+    for (let i = 0; i < listCells.length; i++) {
+        const cell = listCells[i];
+        cell.addEventListener('click', function() {
+            if (num.includes(i + 1)) {
+                console.log ("hai cliccato la cella" + this.innerHTML);
+                this.classList.toggle ("bomb");
+                console.log ("hai perso");
+            }
+            else{
+                console.log("hai cliccato la cella" + this.innerHTML);
+                this.classList.toggle("clicked");
+                ;
+            }
+        })
+}
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createGrid(numCells, eleGrid) {
+    eleGrid.innerHTML = ''
+
+	for (let i = 1; i < numCells + 1; i++) {
+		eleGrid.innerHTML += `<div class="cell">${i}</div>`;
+	}
+
+    const listCells = document.querySelectorAll('.cell');
+	
+    for (let i = 1; i < listCells.length; i++) {
+        const cell = listCells[i];
+        cell.addEventListener('click', function(){
+            this.classList.toggle('clicked');
+        });
+    }
+}
+
+function getRandom (min, max, numbers) {
+    // var numbers = [];
+    while (numbers.length < 16) {
+      let randomNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+      if (!numbers.includes(randomNumber)) {
+    numbers.push(randomNumber);
+  }
+}
+console.log(numbers);
+}
